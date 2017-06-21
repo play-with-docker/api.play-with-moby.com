@@ -1,0 +1,19 @@
+version: '3.2'
+services:
+    api:
+        # pwd daemon container always needs to be named this way
+        container_name: api
+        # use the latest golang image
+        image: golang
+        # go to the right place and starts the app
+        command: /bin/sh -c 'cd /go/src/github.com/play-with-docker/api.play-with-moby.com && go run api.go'
+        ports:
+            - "8080:8080"
+        volumes:
+            - $GOPATH/src:/go/src
+    redis:
+        # pwd daemon container always needs to be named this way
+        container_name: redis
+        # use the latest golang image
+        image: redis
+        # go to the right place and starts the app
