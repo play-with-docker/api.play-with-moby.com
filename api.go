@@ -33,7 +33,7 @@ func main() {
 	corsHandler := gh.CORS(gh.AllowCredentials(), gh.AllowedHeaders([]string{"x-requested-with", "content-type"}), gh.AllowedOrigins([]string{"*"}))
 
 	r.HandleFunc("/ping", ping).Methods("GET")
-	corsRouter.HandleFunc("/share", share).Methods("POST")
+	corsRouter.HandleFunc("/shares", share).Methods("POST")
 	corsRouter.HandleFunc("/shares/{id}", shares).Methods("GET")
 
 	n := negroni.Classic()
